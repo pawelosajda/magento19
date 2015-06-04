@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <frontend>
+        <routers>
+            <basic>
+                <use>standard</use>
+                <args>
+                    <module>Osajda_Basic</module>
+                    <frontName>basic</frontName>
+                </args>
+            </basic>
+        </routers>
+    </frontend>
+    <global>
+        <models>
+            <basic>
+                <class>Osajda_Basic_Model</class>
+                <resourceModel>basic_resource</resourceModel>
+            </basic>
+            <basic_resource>
+                <class>Osajda_Basic_Model_Resource</class>
+            </basic_resource>
+        </models>
+        <helpers>
+            <basic>
+                <class>Osajda_Basic_Helper</class>
+            </basic>
+        </helpers>
+        <blocks>
+            <basic>
+                <class>Osajda_Basic_Block</class>
+            </basic>
+        </blocks>
+    </global>
+    <crontab>
+        <jobs>
+            <basic_cron>
+                <schedule><cron_expr>*/5 * * * *</cron_expr></schedule>
+                <run><model>basic/observer::cron</model></run>
+            </basic_cron>
+        </jobs>
+    </crontab>
+</config>
